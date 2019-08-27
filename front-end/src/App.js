@@ -1,45 +1,37 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
-import useForm from "react-hook-form";
+import Register from "./components/Register";
 
-import "./App.css";
+import axios from "axios";
 
 const App = () => {
-	const { register, handleSubmit, errors } = useForm();
 	const [key, setKey] = useState();
+	const [room, setRoom] = useState();
 
 	useEffect(() => {
 		setKey(localStorage.getItem("key"));
 		console.log("App.js useEffect, setKey to", localStorage.getItem("key"));
-	}, [key]);
+	}, []);
 
-	const onSubmit = data => {
-		console.log("user input", data);
-
+	useEffect(() => {
 		axios
-			.post("http://lambda-mud-test.herokuapp.com/api/registration/", {
-				username: data.username,
-				password1: data.password,
-				password2: data.password
+			.get("http://lambda-mud-test.herokuapp.com/api/adv/init/", {
+				headers: { Authorization: "Token " + key }
 			})
 			.then(res => {
-				console.log(res.data);
-				localStorage.setItem("key", res.data.key);
+				console.log("res.data", res.data);
+				setRoom(res.data);
 			})
 			.catch(err => console.log(err));
-	};
+	}, [key]);
+
+	console.log("room", room);
 
 	return (
-		<div className="App">
+		<div style={{ textAlign: "center" }}>
 			<h1>LambdaMUD</h1>
-			<form onSubmit={handleSubmit(onSubmit)}>
-				<input name="username" defaultValue="test" ref={register} />
-				<br />
-				<input name="password" ref={register({ required: true })} />
-				{errors.usernameRequired && <span>This field is required</span>}
-				<br />
-				<input type="submit" />
-			</form>
+			{key ? null : <Register />}
+			<p>Title: {room ? room.title : null}</p>
+			<p>Description: {room ? room.description : null}</p>
 		</div>
 	);
 };
