@@ -30,8 +30,8 @@ const App = () => {
 		<div style={{ textAlign: "center" }}>
 			<h1>LambdaMUD</h1>
 			{key ? null : <Register />}
-			<p>Title: {room ? room.title : null}</p>
-			<p>Description: {room ? room.description : null}</p>
+			{room ? <p>Title: {room.title} </p> : null}
+			{room ? <p>Description: {room.description} </p> : null}
 		</div>
 	);
 };
