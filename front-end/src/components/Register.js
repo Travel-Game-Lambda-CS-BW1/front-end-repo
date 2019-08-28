@@ -9,7 +9,7 @@ const Register = () => {
 		console.log("user input", data);
 
 		axios
-			.post("http://lambda-mud-test.herokuapp.com/api/registration/", {
+			.post("https://travel-game-python.herokuapp.com/api/registration/", {
 				username: data.username,
 				password1: data.password,
 				password2: data.password
