@@ -2,25 +2,29 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const TravelGame = () => {
-  const [room, setRoom] = useState();
+  const [start, setStart] = useState();
   const [key, setKey] = useState();
 
   useEffect(() => {
     axios
       .get("http://lambda-mud-test.herokuapp.com/api/adv/init/", {
-        headers: { Authorization: "Token " + key }
+        headers: {
+          Authorization: "Token " + key,
+          "Content-Type": "application/json"
+        }
       })
       .then(res => {
         console.log("res.data", res.data);
-        setRoom(res.data);
+        localStorage.getItem("location", res.data.location);
+        setStart(res.data);
       })
       .catch(err => console.log(err));
   }, [key]);
 
-  console.log("room", room);
+  console.log("room", start);
   return (
     <div>
-      <button>Start Game</button>
+      <h3>Showing rooms..</h3>
     </div>
   );
 };
