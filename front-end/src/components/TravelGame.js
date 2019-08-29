@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
+import avatar from "../Images/zelda.png";
+
 const TravelGame = () => {
 	const [game, setgame] = useState({});
 	const [key] = useState();
@@ -28,6 +30,16 @@ const TravelGame = () => {
 
 	return (
 		<div style={{ margin: "40px", fontSize: "1.25rem" }}>
+			<img
+				src={avatar}
+				alt="avatar"
+				style={{
+					margin: "50px",
+					padding: "20px",
+					width: "100px",
+					border: "1px solid black"
+				}}
+			/>
 			{game.title ? <p>Room name: {game.title}</p> : null}
 			{game.description ? <p>Room description: {game.description}</p> : null}
 		</div>
