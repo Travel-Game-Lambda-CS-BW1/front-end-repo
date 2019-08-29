@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
+// Import Components
+
+import Controls from './Controls';
+
 const TravelGame = () => {
   const [start, setStart] = useState();
   const [key, setKey] = useState();
@@ -26,6 +30,25 @@ const TravelGame = () => {
       .catch(err => console.log(err));
   }, [key]);
 
+  function playerMoves(direction) {
+    axios({
+      url: 'https://travel-game-python.herokuapp.com/api/adv/move/',
+      method: "POST",
+      headers: {
+        Authorization: `Token ${key}`
+      },
+      data: {
+        direction: direction
+      }
+    })
+      .then(res => {
+          console.log("res.data", res.data);
+          localStorage.setItem("location", res.data.title);
+          setStart(res.data);
+      })
+      .catch(err => console.log(err));
+  }
+
   console.log("start", start);
   console.log("token", "Token " + key);
   return (
@@ -40,6 +63,10 @@ const TravelGame = () => {
           <p>{start.description}</p>
         </div>
       )}
+      {/* {start.error_msg && (
+        <p className="error-msg">{start.error_msg}</p>
+      )} */}
+      <Controls playerMoves={playerMoves}/>
     </div>
   );
 };
