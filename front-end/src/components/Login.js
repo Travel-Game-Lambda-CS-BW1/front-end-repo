@@ -2,17 +2,16 @@ import React from "react";
 import axios from "axios";
 import useForm from "react-hook-form";
 
-const Register = () => {
+const Login = () => {
   const { register, handleSubmit, errors } = useForm();
 
   const onSubmit = data => {
     console.log("user input", data);
 
     axios
-      .post("https://travel-game-python.herokuapp.com/api/registration/", {
+      .post("https://travel-game-python.herokuapp.com/api/login/", {
         username: data.username,
-        password1: data.password1,
-        password2: data.password2
+        password: data.password
       })
       .then(res => {
         console.log(res.data);
@@ -23,32 +22,19 @@ const Register = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <input
-        name="username"
-        placeholder="Username"
-        defaultValue="test"
-        ref={register}
-      />
+      <input name="username" placeholder="Username" ref={register} />
       <br />
       <input
-        name="password1"
+        name="password"
         placeholder="Password"
         type="password"
         ref={register({ required: true })}
       />
       {errors.usernameRequired && <span>This field is required</span>}
       <br />
-      <input
-        name="password2"
-        placeholder="Confirm Password"
-        type="password"
-        ref={register({ required: true })}
-      />
-      {errors.usernameRequired && <span>This field is required</span>}
-      <br />
+
       <input type="submit" />
     </form>
   );
 };
-
-export default Register;
+export default Login;
