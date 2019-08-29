@@ -6,25 +6,40 @@ const TravelGame = () => {
   const [key, setKey] = useState();
 
   useEffect(() => {
+    setKey(localStorage.getItem("key"));
+    console.log("App.js useEffect, setKey to", localStorage.getItem("key"));
+  }, [key]);
+
+  useEffect(() => {
     axios
-      .get("http://lambda-mud-test.herokuapp.com/api/adv/init/", {
+      .get("https://travel-game-python.herokuapp.com/api/adv/init/", {
         headers: {
-          Authorization: "Token " + key,
+          Authorization: `Token ${key}`,
           "Content-Type": "application/json"
         }
       })
       .then(res => {
         console.log("res.data", res.data);
-        localStorage.getItem("location", res.data.location);
+        localStorage.setItem("location", res.data.title);
         setStart(res.data);
       })
       .catch(err => console.log(err));
   }, [key]);
 
-  console.log("room", start);
+  console.log("start", start);
+  console.log("token", "Token " + key);
   return (
     <div>
-      <h3>Showing rooms..</h3>
+      {!start ? (
+        <h3>Loading Player..</h3>
+      ) : (
+        <div>
+          <h2>Current Player</h2>
+          <h3>{start.name}</h3>
+          <p>{start.location}</p>
+          <p>{start.description}</p>
+        </div>
+      )}
     </div>
   );
 };
