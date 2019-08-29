@@ -12,14 +12,35 @@ code {
     monospace;
 }
 
+nav {
+  background: black;
+  padding: 5px;
+}
+
+nav ul {
+  margin: 0;
+}
+
 nav ul a {
   text-decoration: none;
-  color: green;
-  padding: 5px;
-  background: black;
+  color: aqua;
+  padding: 3.2px 5px;
   border-radius: 5px;
   font-size: 1.2rem;
+  font-weight: bold;
+}
+
+nav ul a:hover {
+  background: white;
+  color: aqua;
 }
 nav ul li {
   list-style: none;
+}
+
+form input {
+  border: none;
+  border-bottom: aqua 2px solid;
+  background: whitesmoke;
+  padding: 10px 20px;
 }

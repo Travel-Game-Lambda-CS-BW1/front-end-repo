@@ -23,8 +23,8 @@ const Register = props => {
   };
 
   return (
-    <div>
-      <h4 style={{ marginBottom: "0" }}>Register</h4>
+    <div style={{ background: "black" }}>
+      <h4 style={{ marginBottom: "0", color: "aqua" }}>Register</h4>
       <form onSubmit={handleSubmit(onSubmit)}>
         <input
           name="username"
@@ -49,7 +49,7 @@ const Register = props => {
         />
         {errors.usernameRequired && <span>This field is required</span>}
         <br />
-        <input type="submit" />
+        <button type="submit">Submit</button>
       </form>
     </div>
   );

@@ -29,15 +29,27 @@ const TravelGame = () => {
   console.log("start", start);
   console.log("token", "Token " + key);
   return (
-    <div>
+    <div style={{ background: "black", color: "aqua", padding: "20px" }}>
       {!start ? (
         <h3>Loading Player..</h3>
       ) : (
-        <div>
-          <h2>Current Player</h2>
-          <h3>{start.name}</h3>
-          <p>{start.location}</p>
-          <p>{start.description}</p>
+        <div
+          style={{
+            display: "flex",
+            alignContent: "center",
+            justifyContent: "space-around"
+          }}
+        >
+          <h2 style={{ paddingTop: "15px" }}>
+            Current Player: {}
+            {start.name}
+          </h2>
+          <h3></h3>
+          <div>
+            <p>Location:</p>
+            <p>{start.title}</p>
+            <p>{start.description}</p>
+          </div>
         </div>
       )}
     </div>
