@@ -24,14 +24,11 @@ const Register = props => {
 
   return (
     <div style={{ background: "black" }}>
-      <h4 style={{ marginBottom: "0", color: "aqua" }}>Register</h4>
+      <h4 style={{ marginBottom: "0", color: "aqua", fontSize: "25px" }}>
+        Register
+      </h4>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <input
-          name="username"
-          placeholder="Username"
-          defaultValue="test"
-          ref={register}
-        />
+        <input name="username" placeholder="Username" ref={register} />
         <br />
         <input
           name="password1"

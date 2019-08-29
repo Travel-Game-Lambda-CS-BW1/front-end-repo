@@ -40,13 +40,12 @@ const TravelGame = () => {
             justifyContent: "space-around"
           }}
         >
-          <h2 style={{ paddingTop: "15px" }}>
+          <h2 style={{ paddingTop: "10px" }}>
             Current Player: {}
             {start.name}
           </h2>
-          <h3></h3>
           <div>
-            <p>Location:</p>
+            <h3>Location:</h3>
             <p>{start.title}</p>
             <p>{start.description}</p>
           </div>
