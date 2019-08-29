@@ -2,10 +2,13 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const TravelGame = () => {
-	const [start, setStart] = useState();
-	const [key, setKey] = useState();
+	const [game, setgame] = useState({});
+	const [key] = useState();
 
 	useEffect(() => {
+		const key = localStorage.getItem("key");
+		console.log("TravelGame.js key", key);
+
 		axios
 			.get(`${process.env.REACT_APP_API_KEY}/api/adv/init/`, {
 				headers: {
@@ -14,17 +17,19 @@ const TravelGame = () => {
 				}
 			})
 			.then(res => {
-				console.log("res.data", res.data);
-				localStorage.getItem("location", res.data.location);
-				setStart(res.data);
+				setgame(res.data);
 			})
 			.catch(err => console.log(err));
 	}, [key]);
 
-	console.log("room", start);
+	console.log("TravelGame.js game", game);
+	console.log("TravelGame.js game.description", game.description);
+	console.log("TravelGame.js game.title", game.title);
+
 	return (
-		<div>
-			<h3>Showing rooms..</h3>
+		<div style={{ margin: "40px", fontSize: "1.25rem" }}>
+			{game.title ? <p>Room name: {game.title}</p> : null}
+			{game.description ? <p>Room description: {game.description}</p> : null}
 		</div>
 	);
 };

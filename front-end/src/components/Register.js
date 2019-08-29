@@ -24,8 +24,8 @@ const Register = props => {
 
 	return (
 		<div>
-			<h4 style={{ marginBottom: "0" }}>Register</h4>
-			<form onSubmit={handleSubmit(onSubmit)}>
+			<h2 style={{ margin: "20px" }}>Register</h2>
+			<form onSubmit={handleSubmit(onSubmit)} style={{ margin: "20px" }}>
 				<input
 					name="username"
 					placeholder="Username"
@@ -49,7 +49,7 @@ const Register = props => {
 				/>
 				{errors.usernameRequired && <span>This field is required</span>}
 				<br />
-				<input type="submit" />
+				<input type="submit" style={{ margin: "20px" }} />
 			</form>
 		</div>
 	);

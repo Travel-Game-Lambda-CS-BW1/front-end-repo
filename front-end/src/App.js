@@ -6,6 +6,7 @@ import NavBar from "./components/NavBar";
 import PrivateRoute from "./PrivateRoute";
 import Register from "./components/Register";
 import TravelGame from "./components/TravelGame";
+import Home from "./components/Home";
 
 const App = props => {
 	const [key, setKey] = useState();
@@ -19,12 +20,7 @@ const App = props => {
 		<div>
 			<NavBar />
 			<div style={{ textAlign: "center" }}>
-				<h1>Travel Game</h1>
-				<p>
-					Welcome traveller! It is time to get lost in adventure. Let your
-					curiosity guide you!
-				</p>
-
+				<Route exact path="/" component={Home} />
 				<Route exact path="/register" component={Register} />
 				<Route exact path="/login" component={Login} />
 				<PrivateRoute exact path="/game" component={TravelGame} />
