@@ -22,7 +22,12 @@ const App = props => {
 				<Route exact path="/" component={Home} />
 				<Route exact path="/register" component={Register} />
 				<Route exact path="/login" component={Login} />
-				<PrivateRoute exact path="/game" component={TravelGame} />
+				<PrivateRoute
+					exact
+					path="/game"
+					component={TravelGame}
+					style={{ height: "80vh" }}
+				/>
 			</div>
 		</div>
 	);

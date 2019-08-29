@@ -63,12 +63,12 @@ const TravelGame = () => {
 				<h3>Loading Player..</h3>
 			) : (
 				<div>
-					<Map rooms={rooms} />
-					<img
+					<Map rooms={rooms} width="800px" height="800px" />
+					{/* <img
 						src={avatar}
 						alt="avatar"
 						style={{
-							margin: "50px",
+							margin: "500px 0 50px",
 							padding: "20px",
 							width: "100px",
 							border: "1px solid black"
@@ -77,7 +77,7 @@ const TravelGame = () => {
 					<h2>Current Player</h2>
 					<h3>{start.name}</h3>
 					<p>{start.location}</p>
-					<p>{start.description}</p>
+					<p>{start.description}</p> */}
 				</div>
 			)}
 		</div>
