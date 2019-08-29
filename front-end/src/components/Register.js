@@ -22,32 +22,35 @@ const Register = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <input
-        name="username"
-        placeholder="Username"
-        defaultValue="test"
-        ref={register}
-      />
-      <br />
-      <input
-        name="password1"
-        placeholder="Password"
-        type="password"
-        ref={register({ required: true })}
-      />
-      {errors.usernameRequired && <span>This field is required</span>}
-      <br />
-      <input
-        name="password2"
-        placeholder="Confirm Password"
-        type="password"
-        ref={register({ required: true })}
-      />
-      {errors.usernameRequired && <span>This field is required</span>}
-      <br />
-      <input type="submit" />
-    </form>
+    <div>
+      <h4 style={{ marginBottom: "0" }}>Register</h4>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <input
+          name="username"
+          placeholder="Username"
+          defaultValue="test"
+          ref={register}
+        />
+        <br />
+        <input
+          name="password1"
+          placeholder="Password"
+          type="password"
+          ref={register({ required: true })}
+        />
+        {errors.usernameRequired && <span>This field is required</span>}
+        <br />
+        <input
+          name="password2"
+          placeholder="Confirm Password"
+          type="password"
+          ref={register({ required: true })}
+        />
+        {errors.usernameRequired && <span>This field is required</span>}
+        <br />
+        <input type="submit" />
+      </form>
+    </div>
   );
 };
 

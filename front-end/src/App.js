@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
+import { Route } from "react-router-dom";
 import Register from "./components/Register";
 import Login from "./components/Login";
+import NavBar from "./components/NavBar";
 
 import axios from "axios";
 
@@ -28,15 +30,17 @@ const App = () => {
   console.log("room", room);
 
   return (
-    <div style={{ textAlign: "center" }}>
-      <h1>Travel Game</h1>
-      <p>
-        Welcome traveller! It is time to get lost in adventure. Let your
-        curiosity guide your way!
-      </p>
-      {key ? <Login /> : <Register />}
-      {room ? <p>Title: {room.title} </p> : null}
-      {room ? <p>Description: {room.description} </p> : null}
+    <div>
+      <NavBar />
+      <div style={{ textAlign: "center" }}>
+        <h1>Travel Game</h1>
+        <p>
+          Welcome traveller! It is time to get lost in adventure. Let your
+          curiosity guide you!
+        </p>
+        <Route exact path="/register" component={Register} />
+        <Route exact path="/login" component={Login} />
+      </div>
     </div>
   );
 };
