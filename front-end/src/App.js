@@ -13,7 +13,6 @@ const App = props => {
 
 	useEffect(() => {
 		setKey(localStorage.getItem("key"));
-		console.log("App.js useEffect, setKey to", localStorage.getItem("key"));
 	}, []);
 
 	return (
