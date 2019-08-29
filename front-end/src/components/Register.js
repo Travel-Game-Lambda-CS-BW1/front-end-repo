@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import useForm from "react-hook-form";
 
-const Register = () => {
+const Register = props => {
   const { register, handleSubmit, errors } = useForm();
 
   const onSubmit = data => {
@@ -17,6 +17,7 @@ const Register = () => {
       .then(res => {
         console.log(res.data);
         localStorage.setItem("key", res.data.key);
+        props.history.push("/game");
       })
       .catch(err => console.log(err));
   };

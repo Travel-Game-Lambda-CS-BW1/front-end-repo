@@ -15,6 +15,7 @@ const Login = props => {
       .then(res => {
         console.log(res.data);
         localStorage.setItem("key", res.data.key);
+        props.history.push("/game");
       })
       .catch(err => console.log(err));
   };
