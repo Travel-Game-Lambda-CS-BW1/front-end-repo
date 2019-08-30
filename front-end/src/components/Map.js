@@ -1,6 +1,6 @@
-import React, { useState, useEffect} from 'react';
-import styled from 'styled-components';
-import img from '../img/map.png';
+import React from "react";
+import styled from "styled-components";
+import img from "../img/map.png";
 
 // Styled Components
 

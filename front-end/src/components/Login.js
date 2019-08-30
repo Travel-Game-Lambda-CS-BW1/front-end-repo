@@ -22,8 +22,8 @@ const Login = props => {
 
   console.log(props);
   return (
-    <div style={{ margin: "10" }}>
-      <h4 style={{ marginBottom: "0" }}>Login</h4>
+    <div style={{ margin: "10", background: "black" }}>
+      <h4 style={{ marginBottom: "0", color: "aqua" }}>Login</h4>
       <form onSubmit={handleSubmit(onSubmit)}>
         <input name="username" placeholder="Username" ref={register} />
         <br />
@@ -36,7 +36,7 @@ const Login = props => {
         {errors.usernameRequired && <span>This field is required</span>}
         <br />
 
-        <input type="submit" />
+        <button type="submit">Submit</button>
       </form>
     </div>
   );

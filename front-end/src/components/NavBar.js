@@ -1,11 +1,10 @@
 import React from "react";
-import axios from "axios";
 import { Link } from "react-router-dom";
 
 const NavBar = () => {
   return (
     <nav>
-      <ul style={{ display: "flex", justifyContent: "space-evenly" }}>
+      <ul style={{ display: "flex", justifyContent: "space-around" }}>
         <li>
           <Link to="/">Home</Link>
         </li>
