@@ -9,7 +9,7 @@ const MapGrid = styled.div`
     grid-template-areas:
         ". . room8 room3 . ."
         ". . room4 room2 . ."
-        ". room5 room7 room1 . .";
+        "room9 room5 room7 room1 . .";
     grid-gap: 5px;
     width: 500px;
     height: 400px;
@@ -55,6 +55,10 @@ const MapGrid = styled.div`
         grid-area: room8;
     }
 
+    .room9 {
+        grid-area: room9;
+    }
+
     .here {
         display: inline-block;
         background: red;
@@ -75,6 +79,7 @@ const Map = props => {
             <div className={`room room6 ${props.currentRoom === 'Treasure Chamber' && "here"}`}></div>
             <div className={`room room7 ${props.currentRoom === 'Wonderland' && "here"}`}></div>
             <div className={`room room8 ${props.currentRoom === 'Starlane' && "here"}`}></div>
+            <div className={`room room9 ${props.currentRoom === 'Mercury' && "here"}`}></div>
         </MapGrid>
     )
 }
