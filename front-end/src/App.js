@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Route } from "react-router-dom";
 import Register from "./components/Register";
 import PrivateRoute from "./PrivateRoute";
@@ -6,12 +6,16 @@ import Login from "./components/Login";
 import NavBar from "./components/NavBar";
 import TravelGame from "./components/TravelGame";
 
-const App = props => {
+const App = () => {
   return (
     <div>
       <NavBar />
-      <div style={{ textAlign: "center" }}>
-        <h1>Travel Game</h1>
+      <div style={{ textAlign: "center", background: "aqua" }}>
+        <h1
+          style={{ marginTop: "0", paddingTop: "30px", paddingBottom: "10px" }}
+        >
+          Travel Game
+        </h1>
         <p>
           Welcome traveller! It is time to get lost in adventure. Let your
           curiosity guide you!
